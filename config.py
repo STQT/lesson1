@@ -11,7 +11,7 @@ OWM_TOKEN = os.getenv('OWM_TOKEN')
 
 # webhook settings
 WEBHOOK_HOST = os.getenv('HEROKU_APP_URL')
-WEBHOOK_PATH = f'/webhook/{TOKEN}'
+WEBHOOK_PATH = '/'
 WEBHOOK_URL = f"{WEBHOOK_HOST}{WEBHOOK_PATH}"
 
 # webserver settings
