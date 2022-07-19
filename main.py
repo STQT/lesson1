@@ -15,6 +15,12 @@ async def start(message: types.Message):
     await message.answer("Привет я новый бот")
 
 
+@dp.message_handler()
+async def some_handler(message: types.Message):
+    name = await message.answer(get_nationalize(message.text))
+    print(name)
+
+
 async def on_startup(dp):
     await bot.set_webhook(WEBHOOK_URL, drop_pending_updates=True)
     print("Bot started")
@@ -24,12 +30,6 @@ async def on_shutdown(dp):
     print("Bot stopped")
     print("ETO DEBUG", DEBUG)
     await bot.delete_webhook()
-
-
-@dp.message_handler()
-async def some_handler(message: types.Message):
-    name = await message.answer(get_nationalize(message.text))
-    print(name)
 
 
 if __name__ == '__main__':
