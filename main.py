@@ -25,10 +25,6 @@ async def on_shutdown(dp):
     print("ETO DEBUG", DEBUG)
     await bot.delete_webhook()
 
-    # Close DB connection (if used)
-    await dp.storage.close()
-    await dp.storage.wait_closed()
-
 
 @dp.message_handler()
 async def some_handler(message: types.Message):
