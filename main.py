@@ -22,6 +22,7 @@ async def on_startup(dp):
 
 async def on_shutdown(dp):
     print("Bot stopped")
+    print("ETO DEBUG", DEBUG)
     await bot.delete_webhook()
 
     # Close DB connection (if used)
