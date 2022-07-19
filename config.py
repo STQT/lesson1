@@ -4,7 +4,7 @@ from dotenv import load_dotenv
 
 load_dotenv()
 
-DEBUG = os.getenv('DEBUG')
+DEBUG = os.getenv('DEBUG', default=None)
 
 TOKEN = os.getenv('TELEGRAM_TOKEN')
 OWM_TOKEN = os.getenv('OWM_TOKEN')
