@@ -15,6 +15,20 @@ async def start(message: types.Message):
     await message.answer("Привет я новый бот")
 
 
+async def on_startup(dp):
+    await bot.set_webhook(WEBHOOK_URL, drop_pending_updates=True)
+    print("Bot started")
+
+
+async def on_shutdown(dp):
+    print("Bot stopped")
+    await bot.delete_webhook()
+
+    # Close DB connection (if used)
+    await dp.storage.close()
+    await dp.storage.wait_closed()
+
+
 @dp.message_handler()
 async def some_handler(message: types.Message):
     name = await message.answer(get_nationalize(message.text))

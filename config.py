@@ -18,16 +18,3 @@ WEBHOOK_URL = f"{WEBHOOK_HOST}{WEBHOOK_PATH}"
 WEBAPP_HOST = '0.0.0.0'  # or ip
 WEBAPP_PORT = os.getenv('WEBHOOK_PORT', default=3001)
 
-
-async def on_startup(dp):
-    await dp.bot.set_webhook(WEBHOOK_URL, drop_pending_updates=True)
-    print("Bot started")
-
-
-async def on_shutdown(dp):
-    print("Bot stopped")
-    await dp.bot.delete_webhook()
-
-    # Close DB connection (if used)
-    await dp.storage.close()
-    await dp.storage.wait_closed()
