@@ -14,8 +14,7 @@ def get_nationalize(name):
     name = text['name']
     countries = ""
     for country in text['country']:
-        countries += "страна="+country['country_id'] + "%=" + str(country['probability']) + "\n"
+        countries += "страна=" + country['country_id'] + "%=" + str(country['probability']) + "\n"
     otvet = ("Имя: {name}\n"
-            "Список государств: {countries}").format(name=name, countries=countries)
+             "Список государств: {countries}").format(name=name, countries=countries)
     return otvet
-
