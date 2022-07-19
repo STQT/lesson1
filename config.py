@@ -16,7 +16,7 @@ WEBHOOK_URL = f"{WEBHOOK_HOST}{WEBHOOK_PATH}"
 
 # webserver settings
 WEBAPP_HOST = '0.0.0.0'  # or ip
-WEBAPP_PORT = os.getenv('PORT', default=8000)
+WEBAPP_PORT = os.getenv('WEBHOOK_PORT', default=3001)
 
 
 async def on_startup(dp):
